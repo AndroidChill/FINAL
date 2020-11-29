@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/edit_text_dark"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/taskTV"
+                style="@style/baseTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Убрать рабочее место"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/subordination"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Подчиненность: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/taskTV" />
+
+            <TextView
+                android:id="@+id/subordinationTV"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вагапов А. А."
+                app:layout_constraintStart_toEndOf="@+id/subordination"
+                app:layout_constraintTop_toBottomOf="@id/taskTV" />
+
+            <TextView
+                android:id="@+id/typeOfWork"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Вид деятельности: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subordinationTV" />
+
+            <TextView
+                android:id="@+id/typeOfWorkTV"
+                style="@style/baseTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxWidth="200dp"
+                android:text="Уборка"
+                app:layout_constraintStart_toEndOf="@+id/typeOfWork"
+                app:layout_constraintTop_toBottomOf="@id/subordinationTV" />
+
+            <TextView
+                android:id="@+id/priority"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Приоритет: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/typeOfWorkTV" />
+
+            <TextView
+                android:id="@+id/priorityTV"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Высокий"
+                app:layout_constraintStart_toEndOf="@id/priority"
+                app:layout_constraintTop_toBottomOf="@id/typeOfWorkTV" />
+
+            <TextView
+                android:id="@+id/gaveTime"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Выдано: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priorityTV" />
+
+            <TextView
+                android:id="@+id/gaveTimeTV"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:00"
+                app:layout_constraintStart_toEndOf="@id/gaveTime"
+                app:layout_constraintTop_toBottomOf="@id/priorityTV" />
+
+            <TextView
+                android:id="@+id/period"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Необходимый срок исполнения: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gaveTimeTV" />
+
+            <TextView
+                android:id="@+id/periodTV"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18:00"
+                app:layout_constraintStart_toEndOf="@id/period"
+                app:layout_constraintTop_toBottomOf="@id/gaveTimeTV" />
+
+            <TextView
+                android:id="@+id/zakrep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Поручение закреплено"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/period" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="Сортировка"
+            app:layout_constraintEnd_toStartOf="@+id/filtr"
+            app:layout_constraintTop_toTopOf="@+id/filtr" />
+
+        <Button
+            android:id="@+id/filtr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Фильтр"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filtr" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_task"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/ic_baseline_add_task_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.96"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.96" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

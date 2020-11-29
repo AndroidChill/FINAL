@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "623955139777",
+    "firebase_url": "https://rosatom-5eeb2.firebaseio.com",
+    "project_id": "rosatom-5eeb2",
+    "storage_bucket": "rosatom-5eeb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623955139777:android:c9f27eb0d7f00ea55d8840",
+        "android_client_info": {
+          "package_name": "com.example.hackaton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623955139777-f1p2gfl3fb91j8mbk5vdd7ba8iv1bav8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm3Vqp_0lCDhIYykFp67uGf8WCnPhoOGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623955139777-f1p2gfl3fb91j8mbk5vdd7ba8iv1bav8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

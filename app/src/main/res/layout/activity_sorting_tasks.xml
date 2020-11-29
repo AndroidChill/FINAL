@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context=".Tasks.SortingTasksActivity">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Сортировка"
+            android:textSize="40sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxPodch"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:button="@drawable/custom_checkbox" />
+
+            <TextView
+                android:id="@+id/textPodch"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_toRightOf="@id/checkboxPodch"
+                android:text="По подчиненности" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxPriority"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:button="@drawable/custom_checkbox" />
+
+            <TextView
+                android:id="@+id/textPriority"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_toRightOf="@id/checkboxPriority"
+                android:text="По приоритетам" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxGaveTime"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:button="@drawable/custom_checkbox" />
+
+            <TextView
+                android:id="@+id/textGaveTime"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_toRightOf="@id/checkboxGaveTime"
+                android:text="По выдаче" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxPeriod"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:button="@drawable/custom_checkbox" />
+
+            <TextView
+                android:id="@+id/textPeriod"
+                style="@style/baseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_toRightOf="@id/checkboxPeriod"
+                android:text="По сроку исполнения" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/sortAscending"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:text="Сортировать по возрастанию" />
+
+        <Button
+            android:id="@+id/sortDescending"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:text="Сортировать по убыванию" />
+
+    </LinearLayout>
+</layout>

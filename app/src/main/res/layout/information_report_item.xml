@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/dark_card_radius"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/headerTV"
+                    style="@style/baseTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/white"
+                    android:text="Новогодний корпоратив"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dateTV"
+                    style="@style/mediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="29.11.2020"
+                    android:textColor="#A6A1A1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/reportFromTV" />
+
+                <TextView
+                    android:id="@+id/reportFromTV"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="От кого:"
+                    android:textColor="@color/teal_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/headerTV" />
+
+                <TextView
+                    android:id="@+id/jobTV"
+                    style="@style/mediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Руководитель цеха"
+                    android:textColor="#00FFCB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/reportFromTV" />
+
+                <TextView
+                    android:id="@+id/reportToTV"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Кому:"
+                    android:textColor="@color/teal_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/jobTV" />
+
+                <TextView
+                    android:id="@+id/recipientTV"
+                    style="@style/mediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Всем"
+                    android:textColor="#00FFCB"
+                    app:layout_constraintEnd_toEndOf="@+id/reportToTV"
+                    app:layout_constraintTop_toBottomOf="@+id/reportToTV" />
+
+                <View
+                    android:id="@+id/aboveView"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/colorAccent"
+                    app:layout_constraintTop_toBottomOf="@id/recipientTV" />
+
+                <TextView
+                    android:id="@+id/reportTextTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:textColor="#C4B9E3"
+                    android:text="@string/text_report"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aboveView" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorAccent"
+                    app:layout_constraintTop_toBottomOf="@id/reportTextTV"
+                    />
+
+                <TextView
+                    android:id="@+id/Accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/apply_text"
+                    android:text="Ознакомился"
+                    android:padding="16dp"
+                    android:textColor="#180761"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

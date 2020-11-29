@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_baseline_chat_24"
+            android:title="Чат"/>
+
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/ic_task_black_24"
+            android:title="Поручения"/>
+
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/ic_task_black_24"
+            android:title="Задачия"/>
+
+        <item
+            android:id="@+id/nav_info_message"
+            android:icon="@drawable/ic_task_black_24"
+            android:title="Информационные сообщения"/>
+
+        <item
+            android:id="@+id/nav_list_chat"
+            android:title="Список чатов"/>
+
+        <item
+            android:id="@+id/nav_complete"
+            android:title="Выполненные поручения"/>
+
+    </group>
+</menu>

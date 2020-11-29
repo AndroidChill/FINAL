@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/edit_text">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/taskTV"
+                    style="@style/baseTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Убрать рабочее место"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/subordination"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Подчиненность: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/taskTV" />
+
+                <TextView
+                    android:id="@+id/subordinationTV"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Вагапов А. А."
+                    app:layout_constraintStart_toEndOf="@+id/subordination"
+                    app:layout_constraintTop_toBottomOf="@id/taskTV" />
+
+                <TextView
+                    android:id="@+id/typeOfWork"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Вид деятельности: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/subordinationTV" />
+
+                <TextView
+                    android:id="@+id/typeOfWorkTV"
+                    style="@style/baseTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Уборка"
+                    android:maxWidth="200dp"
+                    app:layout_constraintStart_toEndOf="@+id/typeOfWork"
+                    app:layout_constraintTop_toBottomOf="@id/subordinationTV" />
+
+                <TextView
+                    android:id="@+id/priority"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Приоритет: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/typeOfWorkTV" />
+
+                <TextView
+                    android:id="@+id/priorityTV"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Высокий"
+                    app:layout_constraintStart_toEndOf="@id/priority"
+                    app:layout_constraintTop_toBottomOf="@id/typeOfWorkTV" />
+
+                <TextView
+                    android:id="@+id/gaveTime"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Выдано: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/priorityTV" />
+
+                <TextView
+                    android:id="@+id/gaveTimeTV"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9:00"
+                    app:layout_constraintStart_toEndOf="@id/gaveTime"
+                    app:layout_constraintTop_toBottomOf="@id/priorityTV" />
+
+                <TextView
+                    android:id="@+id/period"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Необходимый срок исполнения: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gaveTimeTV" />
+
+                <TextView
+                    android:id="@+id/periodTV"
+                    style="@style/baseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18:00"
+                    app:layout_constraintStart_toEndOf="@id/period"
+                    app:layout_constraintTop_toBottomOf="@id/gaveTimeTV" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

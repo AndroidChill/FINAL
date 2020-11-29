@@ -1,0 +1,207 @@
+package com.example.hackaton.ui.activity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.hackaton.R;
+import com.icaksama.rapidsphinx.RapidCompletionListener;
+import com.icaksama.rapidsphinx.RapidPreparationListener;
+import com.icaksama.rapidsphinx.RapidSphinx;
+import com.icaksama.rapidsphinx.RapidSphinxListener;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.cmu.pocketsphinx.Config;
+
+public class ExampleActivity extends AppCompatActivity implements RapidSphinxListener {
+
+    private RapidSphinx rapidSphinx;
+    private Button btnRecognizer;
+    private Button btnStartAudio;
+    private Button btnSync;
+    private EditText txtWords;
+    private EditText txtDistractor;
+    private TextView txtResult;
+    private TextView txtStatus;
+    private TextView txtPartialResult;
+    private TextView txtUnsupported;
+
+    private ProgressDialog dialog = null;
+
+    private List<String> finalHyp = new ArrayList<String>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_example);
+
+        txtWords = (EditText) findViewById(R.id.txtWords);
+        txtDistractor = (EditText) findViewById(R.id.txtDistractor);
+        txtResult = (TextView) findViewById(R.id.txtResult);
+        txtPartialResult = (TextView) findViewById(R.id.txtPartialResult);
+        txtUnsupported = (TextView) findViewById(R.id.txtUnsuported);
+        txtStatus = (TextView) findViewById(R.id.txtStatus);
+        btnSync = (Button) findViewById(R.id.btnSync);
+        btnRecognizer = (Button) findViewById(R.id.btnRecognizer);
+        btnStartAudio = (Button) findViewById(R.id.btnStartAudio);
+
+        rapidSphinx = new RapidSphinx(this);
+        rapidSphinx.addListener(this);
+        this.requestPermissions();
+
+        dialog = ProgressDialog.show(ExampleActivity.this, "",
+                "Preparing data. Please wait...", true);
+        rapidSphinx.prepareRapidSphinx(new RapidPreparationListener() {
+            @Override
+            public void rapidPreExecute(Config config) {
+                // Add your config here
+                rapidSphinx.setSilentToDetect(2000);
+                rapidSphinx.setTimeOutAfterSpeech(10000);
+                config.setBoolean("-backtrace", true);
+//                config.setFloat("-fillprob", 1.0f);
+//                config.setBoolean("-allphone_ci", true);
+//                config.setString("parameter", "value");
+            }
+
+            @Override
+            public void rapidPostExecute(boolean isSuccess) {
+                btnSync.setEnabled(true);
+                btnRecognizer.setEnabled(false);
+                txtStatus.setText("RapidSphinx ready!");
+                dialog.dismiss();
+            }
+        });
+
+
+//        txtStatus.setText( "Preparing data!");
+
+        // Disable buttons for first time
+        btnSync.setEnabled(false);
+        btnRecognizer.setEnabled(false);
+
+        btnSync.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+//                btnSync.setEnabled(false);
+                btnRecognizer.setEnabled(false);
+                rapidSphinx.updateVocabulary(txtWords.getText().toString().trim(),
+                        txtDistractor.getText().toString().trim().split(" "), new RapidCompletionListener() {
+                            @Override
+                            public void rapidCompletedProcess() {
+                                btnRecognizer.setEnabled(true);
+                                dialog.dismiss();
+                            }
+                        });
+            }
+        });
+
+        btnRecognizer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtStatus.setText("");
+                btnSync.setEnabled(false);
+                btnRecognizer.setEnabled(false);
+//                rapidSphinx.updateVocabulary(editText.getText().toString());
+                rapidSphinx.startRapidSphinx(10000);
+                txtStatus.setText("Speech NOW!");
+            }
+        });
+
+        btnStartAudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    if (rapidSphinx.getRapidRecorder() != null) {
+                        rapidSphinx.getRapidRecorder().play(new RapidCompletionListener() {
+                            @Override
+                            public void rapidCompletedProcess() {
+                                Log.d("tag", "rapidCompletedProcess: ");
+                            }
+                        });
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void requestPermissions() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECORD_AUDIO},
+                    1);
+        }
+    }
+
+    @Override
+    public void rapidSphinxDidStop(String reason, int code) {
+        btnSync.setEnabled(true);
+        btnRecognizer.setEnabled(true);
+        System.out.println();
+        if (code == 500) { // 200 code for error
+            System.out.println(reason);
+        } else if (code == 522) { // 200 code for timed out
+            System.out.println(reason);
+        } else if (code == 200) { // 200 code for finish speech
+            System.out.println(reason);
+        }
+    }
+
+    @Override
+    public void rapidSphinxFinalResult(String result, List<String> hypArr, List<Double> scores) {
+        for (String i : hypArr){
+            Log.d("tag", "rapidSphinxFinalResult: " + i);
+        }
+
+        if (result.equalsIgnoreCase(txtWords.getText().toString())) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                txtResult.setTextColor(getResources().getColor(android.R.color.holo_green_light, null));
+            } else {
+                txtResult.setTextColor(getResources().getColor(android.R.color.holo_green_light));
+            }
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                txtResult.setTextColor(getResources().getColor(android.R.color.holo_red_light, null));
+            } else {
+                txtResult.setTextColor(getResources().getColor(android.R.color.holo_red_light));
+            }
+        }
+        txtResult.setText(result);
+    }
+
+    @Override
+    public void rapidSphinxPartialResult(String partialResult) {
+        txtPartialResult.setText(partialResult);
+    }
+
+    @Override
+    public void rapidSphinxUnsupportedWords(List<String> words) {
+        String unsupportedWords = "";
+        for (String word: words) {
+            unsupportedWords += word + ", ";
+        }
+        txtUnsupported.setText("Unsupported words : \n" + unsupportedWords);
+    }
+
+    @Override
+    public void rapidSphinxDidSpeechDetected() {
+        txtStatus.setText("Speech detected!");
+    }
+}

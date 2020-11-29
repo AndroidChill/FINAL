@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_chat">
+
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.example.hackaton.ui.fragment.chat.ChatFragment"
+        android:label="Чат"/>
+
+    <fragment
+        android:id="@+id/nav_task"
+        android:name="com.example.hackaton.ui.fragment.task.TaskFragment"
+        android:label="Поручения"/>
+
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="com.example.hackaton.ui.fragment.order.OrderListFragment"
+        android:label="Задания"/>
+
+    <fragment
+        android:id="@+id/nav_info_message"
+        android:name="com.example.hackaton.ui.activity.InformationReportActivity"
+        android:label="Информационные сообщения"/>
+
+    <fragment
+        android:id="@+id/nav_list_chat"
+        android:name="com.example.hackaton.ui.fragment.chat.ChatListFragment"
+        android:label="Чаты"/>
+
+    <fragment
+        android:id="@+id/nav_complete"
+        android:name="com.example.hackaton.ui.fragment.order.CompleteOrderFragment"
+        android:label="Выполненные поручения"/>
+</navigation>
